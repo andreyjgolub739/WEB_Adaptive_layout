@@ -1,0 +1,79 @@
+/* Загальне */
+body{
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Контейнер */
+.container{
+    padding: 10px;
+    background-color: bisque;
+    box-shadow: 50px 0px 10px rgb(214, 190, 190);
+    
+    &.container__grid{
+        display: grid;
+        grid-template-areas:
+            "header header header"
+            "main main main"
+            "footer footer footer";
+        grid-gap: 10px;
+    }
+}
+
+/* Блоки та елементи */
+.header, .footer{
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.header {
+    &.header__grid{
+        grid-area: header;
+    }
+}
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    &.main__grid{
+        grid-area: main;
+    }
+    .section{
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        border: 1px solid darkgoldenrod;
+    }
+}
+.footer {
+    &.footer__grid{
+        grid-area: footer;
+    }
+}
+
+/* Адаптивність для телефонів */
+@media (min-width: 256px){
+    .section{
+        flex: 1 1 100%;
+    }
+}
+/* Адаптивність для планшетів */
+@media (min-width: 768px) {
+    .container>*{
+        font-size: 1.1em;
+    }
+    .section{
+        flex: 1 1 50%;
+    }
+}
+/* Адаптивність для настільних комп'ютерів */
+@media (min-width: 1024px) {
+    .container>*{
+        font-size: 1.2em;
+    }
+    .section{
+        flex: 1 1 33.33%;
+    }
+}
